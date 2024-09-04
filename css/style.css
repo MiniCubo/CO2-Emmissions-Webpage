@@ -344,6 +344,11 @@
   .UN{
     padding-top: 3rem;
     display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .UN .texto{
+    margin-bottom: 50px;
   }
 
   #custom-cards .py-5{
