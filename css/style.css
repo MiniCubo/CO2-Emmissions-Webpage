@@ -375,3 +375,26 @@
 .googleMap span{
   text-align: justify;
 }
+
+/*La parte encargada de la tabla de excel en Timelapse.html*/
+table {
+  width: 100%;
+  border-collapse: collapse; /* Para eliminar los espacios entre bordes de celdas */
+  margin: 20px 0; /* Márgenes alrededor de la tabla */
+  font-family: Arial, sans-serif; /* Fuente más legible */
+}
+th, td {
+  border: 1px solid #ddd; /* Bordes ligeros */
+  padding: 8px; /* Espaciado entre las celdas */
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2; /* Color de fondo para el encabezado */
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Color de fondo alternativo para filas pares */
+}
+tr:hover {
+  background-color: #f1f1f1; /* Efecto de hover para resaltar filas */
+}
+/*Fin de la parte encargada de la tabla de excel en Timelapse.html*/
