@@ -1,0 +1,18 @@
+{
+  "name": "c02-emissions-mexico",
+  "version": "1.0.0",
+  "description": "Webpage designed to show estimations of CO2 estimations in streets of Mexico utilizing the Tomtom APIs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alvaro, Jose Pablo, Jaime",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "fast-csv": "^5.0.1",
+    "https": "^1.0.0",
+    "nodemon": "^3.1.7"
+  }
+}
