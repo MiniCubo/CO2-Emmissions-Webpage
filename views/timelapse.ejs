@@ -1,7 +1,9 @@
 <%- include("./partials/header.ejs", {title}) -%>
   <% if(locals.info) {
     %>
-    <script> const info = "<%= info %>";</script>
+    <script>
+      var info = <%- JSON.stringify(info) %>;
+    </script>
     <div class = "googleMap" style="display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,4 +60,5 @@
         </table>
       </div>
     <%}  %>
+    
 <%- include("./partials/footer.ejs") -%>
