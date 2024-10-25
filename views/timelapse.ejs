@@ -8,9 +8,32 @@
     justify-content: center;
     ">
       <h1>Timelapse of CO2 emissions in Mexico</h1>
+      <div class = "mapFilling">
+        <div class="years">
+          <select id="selectionYear">
+            <% info.forEach((state, index)=>{ 
+            var startYear = 1979;
+            %>
+            <% if(index > 0){ %>
+              <option value="<%= startYear+index %>"><%= startYear+index %></option>
+            <%} %>
+          <%}) %>
+          </select>
+        </div>
+        <div class="states">
+          <select id="selectionState">
+            <% info[0].forEach((row, index)=>{ 
+            %>
+            <% if(index > 1){ %>
+              <option value="<%= row %>"><%= row %></option>
+            <%} %>
+          <%}) %>
+          </select>
+        </div>  
+      </div>
       <div id="map">
 
-      </div>  
+      </div>
     </div>
       <div id="output">
         <h1>Table data with the amount of vehicles circulating in Mexico from 1980 to 2023</h1>
