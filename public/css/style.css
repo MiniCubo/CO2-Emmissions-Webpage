@@ -436,6 +436,7 @@ tr:hover {
   margin: 5px 0px;
 }
   */
+  
   .ol-popup {
     position: absolute;
     background-color: white;
@@ -446,6 +447,7 @@ tr:hover {
     bottom: 12px;
     left: -50px;
     min-width: 280px;
+    height: 120px;
   }
   .ol-popup:after, .ol-popup:before {
     top: 100%;
@@ -477,3 +479,4 @@ tr:hover {
   .ol-popup-closer:after {
     content: "✖";
   }
+  

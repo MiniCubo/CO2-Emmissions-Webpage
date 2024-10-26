@@ -13,11 +13,6 @@ const closer = document.getElementById('popup-closer');
 
 const overlay = new ol.Overlay({
   element: container,
-  autoPan: {
-    animation: {
-      duration: 250,
-    },
-  },
 });
 
 var myLayer = new ol.layer.Tile({
@@ -44,47 +39,6 @@ new ol.style.Style({
   }),
 })
 ]
-
-var Stylefunction = function(properties){
-var numeroCoches= properties.get('name');
-console.log(properties);
-console.log(numeroCoches);
-var radius;
-var color;
-if(numeroCoches>150000){
-  radius=20;
-  color=(255,0,0);
-}else if (numeroCoches>100000){
-  radius=15;
-  color=(0,100,100);
-}else if(numeroCoches>50000){
-  radius=10;
-  color=(0,255,0);
-}
-else{
-  radius=5;
-  color=(0,0,255);
-}
-var retStyle=new ol.style.Style({
-  image: new ol.style.Circle({
-    fill: new ol.style.Fill({
-      color: color
-    }),
-    radius:radius
-  })
-})
-return retStyle
-}
-
-formatoJson = new ol.source.Vector({
-url: "../datos/mexicoHigh.json",
-format: new ol.format.GeoJSON()
-});
-
-var estadoCapa=new ol.layer.Vector({
-source:formatoJson,
-style: Stylefunction
-});
 
 mygeojson = new ol.layer.Vector({
 source: new ol.source.Vector({
@@ -252,11 +206,39 @@ myView.animate({
 })
 //map.addLayer(estadoCapa);
 });
+var datos  = 0;
+var state = "";
 
-map.on('singleclick', function (evt) {
-  const coordinate = evt.coordinate;
-  const hdms = "ayuda";
-
-  content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
-  overlay.setPosition(coordinate);
+map.on("click", (evt)=>{
+  var feature1 = map.forEachFeatureAtPixel(evt.pixel, (feature)=>{
+    return feature;
+  })
+  var index = 0;
+  state = feature1.A.name;
+  centreStates.forEach((state, i)=>{
+  if(state.name === feature1.A.name){
+    index = i;
+    return;
+  }
+  datos = currentYearData[index];
+})
 });
+
+var bandera = false;
+
+document.getElementById("map").addEventListener('click', function (event) {
+    const coordinateX = event.clientX;
+    const coordinateY = event.clientY;
+    if (!document.getElementById("map").contains(container)) {
+      document.getElementById("map").appendChild(container);
+    }
+    content.innerHTML = `<h1>${state}: ${datos}</h1>`;
+    container.style.display = "flex";
+    container.style.top = `${coordinateY}px`; 
+    container.style.left = `${coordinateX}px`;
+});
+
+closer.onclick = function(event){
+    event.stopPropagation();
+    container.style.display = "none";
+}
