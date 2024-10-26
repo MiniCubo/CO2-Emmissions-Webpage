@@ -19,11 +19,24 @@ const map = new ol.Map({
   view: myView
 });
 
+var styles = [
+  new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: "rgba(255,255,255,0.5)"
+    }),
+    stroke: new ol.style.Stroke({
+      color: "black",
+      width: 1.25
+    })
+  })
+]
+
 mygeojson = new ol.layer.Vector({
   source: new ol.source.Vector({
     format: new ol.format.GeoJSON(),
     url: "../datos/mexicoHigh.json"
-  })
+  }),
+  style: styles
 });
 
 map.addLayer(mygeojson);
@@ -179,5 +192,9 @@ document.getElementById("selectionState").addEventListener("input", (event)=>{
   console.log(centreStates[index].name);
   console.log(centreStates[index].coords);
   console.log(currentYearData[index+1]);
-
+  myView.animate({
+    center: centreStates[index].coords,
+    duration: 2000,
+    zoom: 7
+  })
 });
