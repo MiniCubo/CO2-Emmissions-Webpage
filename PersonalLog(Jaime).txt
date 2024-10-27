@@ -1,0 +1,5 @@
+It has been a difficult project, mainly because of the overlay on our web app to show the mexican map, it caused lot of
+trouble, we have been working independently most of the midterm but yesterday, 26th octuber, we stayed at Soto´s house
+to work on the project, in one afternoon we made a lot of progress mainly because we were researching and coding together,
+when someone had a mistake or someone was tired of watching tutorials on youtube the other ones could detect the mistake,
+give fresh ideas and take turns to work.
