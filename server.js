@@ -14,12 +14,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
 
+//Landing page
 app.route("/")
 .get((req, res)=>{
     res.render("index", {title: "Carbon Bank"});
 });
 
+//Timelapse page
 app.use("/timelapse", (req, res, next)=>{
+    //Receiving the data from the csv and inserting into an array of JSONs
     req.customdata = []
     const readable = fs.createReadStream(__dirname + "/public/datos/timelapsedata.csv").pipe(csv.parse({}));
     readable.on("data", (data)=>{

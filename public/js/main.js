@@ -1,4 +1,5 @@
-
+//OpenLayer components
+//View componenet
 var myView = new ol.View({
   center: [
     -11486790.047830956,
@@ -11,16 +12,19 @@ const container = document.getElementById('popup');
 const content = document.getElementById('popup-content');
 const closer = document.getElementById('popup-closer');
 
+//Overlay comp, (not used)
 const overlay = new ol.Overlay({
   element: container,
 });
 
+//Main layer comp
 var myLayer = new ol.layer.Tile({
   source: new ol.source.OSM(),
 });
 
 var layer = [myLayer]
 
+//Map comp
 const map = new ol.Map({
 target: 'map',
 layers: layer,
@@ -28,6 +32,7 @@ view: myView,
 overlay: [overlay],
 });
 
+//Map style
 var styles = [
 new ol.style.Style({
   fill: new ol.style.Fill({
@@ -40,6 +45,7 @@ new ol.style.Style({
 })
 ]
 
+//States layer over the main layer
 mygeojson = new ol.layer.Vector({
 source: new ol.source.Vector({
   format: new ol.format.GeoJSON(),
@@ -50,6 +56,7 @@ style: styles
 
 map.addLayer(mygeojson);
 
+//Coords of states
 const centreStates =[
 {
   "name": "Aguascalientes",
@@ -181,15 +188,17 @@ const centreStates =[
 }
 ];
 
+//Current data of each year (vehicles per state)
 var currentYearData = info[1].splice(2);
 
+//Selecting the year the user wants
 document.getElementById("selectionYear").addEventListener("input", (event)=>{
 const selectedValue = event.target.value;
 var index = selectedValue - 1979;
 currentYearData = info[index].splice(2);
-console.log(currentYearData);
 });
 
+//Selecting the state the user wants to view
 document.getElementById("selectionState").addEventListener("input", (event)=>{
 const selectedValue = event.target.value;
 var index = 0;
@@ -206,9 +215,11 @@ myView.animate({
 })
 //map.addLayer(estadoCapa);
 });
+
 var datos  = 0;
 var stateName = "";
 
+//UX comp to show the amount of vehicles
 map.on("click", (evt)=>{
   var feature1 = map.forEachFeatureAtPixel(evt.pixel, (feature)=>{
     return feature;
@@ -227,10 +238,10 @@ map.on("click", (evt)=>{
 
 var bandera = false;
 
+//Detecting the position of the mouse click and putting the popup.
 document.getElementById("map").addEventListener('click', function (event) {
     const coordinateX = event.pageX-45;
     const coordinateY = event.pageY-130;
-    console.log(event.offsetY);
     if (!document.getElementById("map").contains(container)) {
       document.getElementById("map").appendChild(container);
     }
@@ -240,6 +251,7 @@ document.getElementById("map").addEventListener('click', function (event) {
     container.style.left = `${coordinateX}px`;
 });
 
+//Closing th popup
 closer.onclick = function(event){
     event.stopPropagation();
     container.style.display = "none";
