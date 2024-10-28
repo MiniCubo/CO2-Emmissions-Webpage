@@ -17,11 +17,6 @@ app.route("/")
     res.render("index", {title: "Carbon Bank"});
 });
 
-app.route("/co2")
-.get((req, res)=>{
-    res.render("real-time-CO2", {title:"CO2 Emmisions"});
-});
-
 app.use("/timelapse", (req, res, next)=>{
     req.customdata = []
     const readable = fs.createReadStream(__dirname + "/public/datos/timelapsedata.csv").pipe(csv.parse({}));

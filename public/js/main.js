@@ -181,12 +181,12 @@ const centreStates =[
 }
 ];
 
-var currentYearData = info[1].splice(1);
+var currentYearData = info[1].splice(2);
 
 document.getElementById("selectionYear").addEventListener("input", (event)=>{
 const selectedValue = event.target.value;
 var index = selectedValue - 1979;
-currentYearData = info[index].splice(1);
+currentYearData = info[index].splice(2);
 console.log(currentYearData);
 });
 
@@ -207,14 +207,15 @@ myView.animate({
 //map.addLayer(estadoCapa);
 });
 var datos  = 0;
-var state = "";
+var stateName = "";
 
 map.on("click", (evt)=>{
   var feature1 = map.forEachFeatureAtPixel(evt.pixel, (feature)=>{
     return feature;
   })
   var index = 0;
-  state = feature1.A.name;
+  stateName = feature1.A.name;
+  console.log(stateName);
   centreStates.forEach((state, i)=>{
   if(state.name === feature1.A.name){
     index = i;
@@ -227,12 +228,13 @@ map.on("click", (evt)=>{
 var bandera = false;
 
 document.getElementById("map").addEventListener('click', function (event) {
-    const coordinateX = event.clientX;
-    const coordinateY = event.clientY;
+    const coordinateX = event.pageX-45;
+    const coordinateY = event.pageY-130;
+    console.log(event.offsetY);
     if (!document.getElementById("map").contains(container)) {
       document.getElementById("map").appendChild(container);
     }
-    content.innerHTML = `<h1>${state}: ${datos}</h1>`;
+    content.innerHTML = `<h1>${stateName}: ${datos} vehicles</h1>`;
     container.style.display = "flex";
     container.style.top = `${coordinateY}px`; 
     container.style.left = `${coordinateX}px`;

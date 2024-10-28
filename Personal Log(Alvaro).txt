@@ -19,3 +19,8 @@ getting the geojsons of the states.
 October 19th 2024
 
 Finally found the geojsons and added the map with the overlay to the webpage.
+
+October 25th 2024
+
+I am making changes to the way we obtain the info of each state in the corresponding year in the main.js. Also made the centering of states
+and the change of years.
