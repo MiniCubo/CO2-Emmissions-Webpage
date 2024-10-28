@@ -338,6 +338,22 @@
   /*
   CSS for the landing page
   */
+
+  @media (max-width: 768px) {
+    .Objective{
+      flex-wrap: wrap;
+      margin: 10% !important;
+    }
+    .UN{
+      padding-top: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+
   .Objective *{
     margin: 10px;
   }
@@ -420,7 +436,7 @@ tr:hover {
 /*Fin de la parte encargada de la tabla de excel en Timelapse.html*/
 #map {
   height: 500px;
-  width: 800px;
+  width: 100%;
 }
 .mapFilling{
   display: flex;
