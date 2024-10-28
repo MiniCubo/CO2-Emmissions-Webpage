@@ -24,3 +24,7 @@ October 25th 2024
 
 I am making changes to the way we obtain the info of each state in the corresponding year in the main.js. Also made the centering of states
 and the change of years.
+
+October 28th 2024
+
+Did some small changes to the backend and the map logic. Hosted the webpage in Render.

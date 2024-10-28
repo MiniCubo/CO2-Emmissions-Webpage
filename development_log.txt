@@ -6,3 +6,14 @@ October 15th 2024
 
 We decided to give up on the real time emissions map, becuase the available APIs were of no use, and instead focused on the timelapse map.
 
+October 20th 2024
+
+Implementing OpenLayers API to make the map section.
+
+October 25th 2024
+
+Finished Implementing the map and added some small interactivity with the user.
+
+October 28th 2024
+
+Hosted the webpage in Render.

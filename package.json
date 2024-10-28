@@ -4,11 +4,14 @@
   "description": "Webpage designed to show estimations of CO2 estimations in streets of Mexico utilizing the Tomtom APIs",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Alvaro, Jose Pablo, Jaime",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "fast-csv": "^5.0.1",
